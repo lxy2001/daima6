@@ -11,23 +11,23 @@ struct student{
     int score[7]={0};
     double average_score;
 };
-struct caipan{
+struct judgment{
     string tname;
 };
-struct zuida{
-    int e;
+struct Max{
+    int mlocation;
     int max;
 };
-struct zuixiao{
-    int w;
+struct Min{
+    int nlocation;
     int min;
 };
 int main (){
     int y=0;
     student student[n];
-    caipan judgment[7];
-    zuida max[n];
-    zuixiao min[n];
+    judgment judgment[7];
+    Max max[n];
+    Min min[n];
     ifstream outf("/Users/s20181106279/Desktop/tttt.txt");
     ifstream out("/Users/s20181106279/Desktop/ttt.txt");
     for(int i=0;i<n;i++){
@@ -47,24 +47,24 @@ int main (){
     }
     for(int i=0;i<n;i++){
         max[i].max=student[i].score[0];
-        max[i].e=0;
+        max[i].mlocation=0;
         min[i].min=student[i].score[0];
-        min[i].w=0;
+        min[i].nlocation=0;
         for(int j=1;j<7;j++){
             if(max[i].max<student[i].score[j]){
                 max[i].max=student[i].score[j];
-                max[i].e=j;
+                max[i].mlocation=j;
             }
             if(min[i].min>student[i].score[j]){
                 min[i].min=student[i].score[j];
-                min[i].w=j;
+                min[i].nlocation=j;
             }
         }
     }
     for(int i=0;i<n;i++){
         double v=0;
         for(int k=0;k<7;k++){
-            if(k!=max[i].e&&k!=min[i].w){
+            if(k!=max[i].mlocation&&k!=min[i].nlocation){
                 v=v+student[i].score[k];
             }
         }
@@ -127,9 +127,3 @@ int main (){
     return 0;
     
 }
-
-
-
-
-
-
